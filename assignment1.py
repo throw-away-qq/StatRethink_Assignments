@@ -61,35 +61,35 @@ sample = np.random.choice(p_grid, size = 10000, p = posterior)
 np.mean(sample)
 
 ## 99 percentile and 1 percentile
-(0.5, 0.81)
+# (0.5, 0.81)
 np.quantile(sample, 0.01)
 np.quantile(sample, 0.99)
 
 
 
 
-##3 iterative
-## flat prior
-p_grid = np.arange(0.0,1.0, 0.0001)
-# both prob_p and p_grid will give prior
-prob_p = np.ones(10000)
+# ##3 iterative
+# ## flat prior
+# p_grid = np.arange(0.0,1.0, 0.0001)
+# # both prob_p and p_grid will give prior
+# prob_p = np.ones(10000)
 
-plt.plot(prob_p)
-plt.show()
-for _ in range(5):
-    likelihood = binom.pmf(8, 15, p_grid)
-    posterior= likelihood*prob_p
+# plt.plot(prob_p)
+# plt.show()
+# for _ in range(5):
+#     likelihood = binom.pmf(8, 15, p_grid)
+#     posterior= likelihood*prob_p
 
-    plt.plot(posterior)
-    plt.show()
+#     plt.plot(posterior)
+#     plt.show()
 
-    posterior = posterior/np.sum(posterior)
+#     posterior = posterior/np.sum(posterior)
 
-    sample = np.random.choice(p_grid, size = 10000, p = posterior)
+#     sample = np.random.choice(p_grid, size = 10000, p = posterior)
 
-    ## mean probability
-    print(np.mean(sample),np.quantile(sample, 0.01) , np.quantile(sample, 0.99))
+#     ## mean probability
+#     print(np.mean(sample),np.quantile(sample, 0.01) , np.quantile(sample, 0.99))
 
-    ## 99 percentile and 1 percentile
-    # (0.261, 0.791)
-    prob_p = sample
+#     ## 99 percentile and 1 percentile
+#     # (0.261, 0.791)
+#     prob_p = sample
